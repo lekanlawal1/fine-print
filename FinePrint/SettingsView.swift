@@ -52,6 +52,10 @@ struct SettingsView: View {
                             Task { await model.saveGeminiKey(keyField); keyField = "" }
                         }
                         .disabled(keyField.trimmingCharacters(in: .whitespaces).isEmpty)
+                        if let error = model.keySaveError {
+                            Label(error, systemImage: "exclamationmark.triangle.fill")
+                                .font(.caption).foregroundStyle(Theme.violation)
+                        }
                     }
                 } header: {
                     Text("Google Gemini")

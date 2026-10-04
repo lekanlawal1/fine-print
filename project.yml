@@ -8,7 +8,11 @@ options:
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    CODE_SIGNING_ALLOWED: "NO"   # Simulator builds; device builds need a signing team
+    # "Sign to Run Locally" (ad-hoc). Unsigned builds lack the application-identifier
+    # entitlement, and the Keychain then silently rejects every save. Device builds need a team.
+    CODE_SIGNING_ALLOWED: "YES"
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
 packages:
   FinePrintCore:
     path: FinePrintCore

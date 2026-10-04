@@ -58,6 +58,9 @@ final class AppModel {
         geminiAllowed = defaults.object(forKey: "geminiAllowed") as? Bool ?? false
         allowOnDevice = defaults.object(forKey: "allowOnDevice") as? Bool ?? true
         loadPacks()
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["FP_KEYCHAIN_SELFTEST"] == "1" { Keychain.selfTest() }
+        #endif
     }
 
     // MARK: - Rule packs
@@ -111,8 +114,11 @@ final class AppModel {
         return offlineEngine
     }
 
+    /// Set when saving the key fails, so Settings can say so instead of failing silently.
+    var keySaveError: String?
+
     func saveGeminiKey(_ key: String) async {
-        Keychain.save(key.trimmingCharacters(in: .whitespacesAndNewlines))
+        keySaveError = Keychain.save(key.trimmingCharacters(in: .whitespacesAndNewlines))
         await checkEngines()
     }
 
