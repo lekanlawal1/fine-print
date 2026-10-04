@@ -1,0 +1,9 @@
+{
+  "document_type": "residential_lease",
+  "source": "text",
+  "expected": [
+    { "type": "landlord_entry", "marker": "at least 24 hours' written notice", "params": { "notice_hours": 24 } }
+  ],
+  "absent": [],
+  "allowed_extra": ["pets", "security_deposit", "post_dated_cheques", "nsf_fee", "guests"]
+}

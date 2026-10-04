@@ -1,0 +1,39 @@
+# Fine Print iOS app. Generate the Xcode project with: xcodegen generate
+# (the .xcodeproj is git-ignored; this file is the source of truth)
+name: FinePrint
+options:
+  bundleIdPrefix: com.lekanlawal
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    CODE_SIGNING_ALLOWED: "NO"   # Simulator builds; device builds need a signing team
+packages:
+  FinePrintCore:
+    path: FinePrintCore
+targets:
+  FinePrint:
+    type: application
+    platform: iOS
+    sources:
+      - path: FinePrint
+      - path: Packs
+        type: folder      # copied into the bundle as Packs/
+      - path: Samples
+        type: folder      # copied into the bundle as Samples/
+    dependencies:
+      - package: FinePrintCore
+        product: FinePrintCore
+      - package: FinePrintCore
+        product: FinePrintAI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.lekanlawal.fineprint
+        GENERATE_INFOPLIST_FILE: "YES"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_CFBundleDisplayName: Fine Print
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"

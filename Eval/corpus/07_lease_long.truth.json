@@ -1,0 +1,83 @@
+{
+  "document_type": "residential_lease",
+  "source": "text",
+  "expected": [
+    {
+      "type": "post_dated_cheques",
+      "marker": "paid by pre-authorized debit"
+    },
+    {
+      "type": "nsf_fee",
+      "marker": "administration fee of $35",
+      "params": {
+        "amount": 35
+      }
+    },
+    {
+      "type": "rent_increase",
+      "marker": "once in any twelve-month period",
+      "params": {
+        "notice_days": 90,
+        "months_between_increases": 12
+      }
+    },
+    {
+      "type": "rent_deposit",
+      "marker": "rent deposit of $2,450",
+      "params": {
+        "amount": 2450,
+        "monthly_rent": 2450
+      }
+    },
+    {
+      "type": "key_deposit",
+      "marker": "refundable deposit of $150 for two key fobs",
+      "params": {
+        "amount": 150,
+        "replacement_cost": 150
+      }
+    },
+    {
+      "type": "security_deposit",
+      "marker": "cleaning deposit of $400",
+      "params": {
+        "amount": 400
+      }
+    },
+    {
+      "type": "pets",
+      "marker": "shall not keep any dogs, cats"
+    },
+    {
+      "type": "landlord_entry",
+      "marker": "at least 6 hours' notice",
+      "params": {
+        "notice_hours": 6
+      }
+    },
+    {
+      "type": "liability_waiver",
+      "marker": "shall not be liable for any loss"
+    },
+    {
+      "type": "indemnity",
+      "marker": "shall indemnify the Landlord"
+    },
+    {
+      "type": "acceleration_clause",
+      "marker": "balance of the term shall immediately become due"
+    },
+    {
+      "type": "assignment",
+      "marker": "may assign this Agreement"
+    }
+  ],
+  "absent": [],
+  "allowed_extra": [
+    "auto_renewal",
+    "guests",
+    "termination",
+    "venue"
+  ],
+  "notes": "auto_renewal is accepted as an extra: clause 2.1 continues the tenancy month-to-month unless notice is given, which is an automatic continuation."
+}

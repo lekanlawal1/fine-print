@@ -1,0 +1,12 @@
+{
+  "document_type": "unknown",
+  "source": "text",
+  "expected": [
+    { "type": "non_compete", "marker": "any direct competitor of the Client" },
+    { "type": "indemnity", "marker": "indemnify the Client" },
+    { "type": "termination", "marker": "14 days' written notice" },
+    { "type": "content_license", "marker": "assigns to the Client all rights" }
+  ],
+  "absent": [],
+  "allowed_extra": ["assignment"]
+}

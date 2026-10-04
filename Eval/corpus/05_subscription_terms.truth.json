@@ -1,0 +1,16 @@
+{
+  "document_type": "subscription_terms",
+  "source": "text",
+  "expected": [
+    { "type": "auto_renewal", "marker": "automatically renews each month" },
+    { "type": "unilateral_amendment", "marker": "modify these Terms at any time" },
+    { "type": "price_increase", "marker": "change the price of your subscription" },
+    { "type": "arbitration", "marker": "binding arbitration" },
+    { "type": "data_sharing", "marker": "advertising partners and other third parties" },
+    { "type": "cancellation_fee", "marker": "cancellation fee of $45", "params": { "amount": 45 } },
+    { "type": "venue", "marker": "laws of the State of Delaware" },
+    { "type": "liability_waiver", "marker": "will not be liable" }
+  ],
+  "absent": [],
+  "allowed_extra": ["price_increase", "termination", "unilateral_amendment"]
+}

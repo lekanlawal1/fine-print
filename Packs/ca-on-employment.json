@@ -1,0 +1,57 @@
+{
+  "id": "ca-on-employment",
+  "name": "Ontario employment standards",
+  "jurisdiction": "CA-ON",
+  "document_types": ["employment"],
+  "last_verified": "2026-10-04",
+  "source_url": "https://www.ontario.ca/laws/statute/00e41",
+  "rules": [
+    {
+      "id": "non-compete-void",
+      "applies_to": "non_compete",
+      "check": { "kind": "present" },
+      "title": "Non-compete clause",
+      "citation": "Employment Standards Act, 2000, s. 67.2",
+      "explanation_if_violated": "Section 67.2 prohibits employers from entering into employment contracts that are, or include, a non-compete agreement, and says such an agreement is void.",
+      "exception_note": "Two exceptions apply: an agreement made as part of the sale of a business where the seller then becomes the buyer's employee, and employees who are executives (CEO, president, CFO, COO, CIO, chief legal officer, chief HR officer, chief corporate development officer, or another chief executive position). The prohibition was added in 2021, and courts have treated agreements signed before then differently."
+    },
+    {
+      "id": "vacation-minimum",
+      "applies_to": "vacation",
+      "check": { "kind": "min_value", "param": "vacation_weeks", "limit": 2 },
+      "title": "Vacation time",
+      "citation": "Employment Standards Act, 2000, ss. 33(1) and 5(1)",
+      "explanation_if_violated": "The ESA requires at least two weeks of vacation after each vacation entitlement year for employees with under five years of service. A contract can't waive that minimum (s. 5(1)).",
+      "explanation_if_compliant": "The vacation offered meets the two-week minimum for the first five years.",
+      "exception_note": "From five years of service, the minimum rises to three weeks (s. 33(1)(b))."
+    },
+    {
+      "id": "overtime-threshold",
+      "applies_to": "overtime",
+      "check": { "kind": "max_value", "param": "overtime_threshold_hours", "limit": 44 },
+      "title": "Overtime threshold",
+      "citation": "Employment Standards Act, 2000, ss. 22(1) and 5(1)",
+      "explanation_if_violated": "Overtime pay is owed for each hour over 44 in a work week (unless another threshold is prescribed). This clause starts overtime later than that.",
+      "explanation_if_compliant": "Overtime starts at or before the 44-hour weekly threshold.",
+      "exception_note": "Some jobs are exempt from overtime or have special rules under the ESA regulations. Check whether your role is one of them."
+    },
+    {
+      "id": "overtime-rate",
+      "applies_to": "overtime",
+      "check": { "kind": "min_value", "param": "overtime_multiplier", "limit": 1.5 },
+      "title": "Overtime rate",
+      "citation": "Employment Standards Act, 2000, ss. 22(1) and 5(1)",
+      "explanation_if_violated": "Overtime must be paid at least one and one-half times the regular rate. This clause pays less.",
+      "explanation_if_compliant": "The overtime rate meets the 1.5x minimum.",
+      "exception_note": "Some jobs are exempt from overtime or have special rules under the ESA regulations. Check whether your role is one of them."
+    },
+    {
+      "id": "termination-notice-review",
+      "applies_to": "termination",
+      "check": { "kind": "review" },
+      "title": "Termination notice",
+      "citation": "Employment Standards Act, 2000, ss. 57 and 5(1)",
+      "explanation_if_violated": "The ESA sets minimum termination notice by length of service: one week under one year, two weeks from one to three years, then one more week per year of service up to eight weeks at eight years or more. A contract can't provide less than that (s. 5(1)). Whether this clause meets the minimum depends on your length of service and how the clause is worded, so this app doesn't decide it. Read it against that schedule."
+    }
+  ]
+}

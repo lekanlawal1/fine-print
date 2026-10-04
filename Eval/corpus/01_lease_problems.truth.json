@@ -1,0 +1,17 @@
+{
+  "document_type": "residential_lease",
+  "source": "text",
+  "expected": [
+    { "type": "rent_deposit", "marker": "rent deposit of $1,800", "params": { "amount": 1800, "monthly_rent": 1800 } },
+    { "type": "security_deposit", "marker": "damage deposit of $600", "params": { "amount": 600 } },
+    { "type": "post_dated_cheques", "marker": "twelve post-dated cheques" },
+    { "type": "nsf_fee", "marker": "returned NSF", "params": { "amount": 50 } },
+    { "type": "acceleration_clause", "marker": "remainder of the term becomes due" },
+    { "type": "pets", "marker": "No pets of any kind" },
+    { "type": "guests", "marker": "Guests may not stay overnight" },
+    { "type": "landlord_entry", "marker": "at any time without notice", "params": { "notice_hours": 0 } },
+    { "type": "rent_increase", "marker": "once every six months", "params": { "notice_days": 60, "months_between_increases": 6 } }
+  ],
+  "absent": [],
+  "allowed_extra": ["termination"]
+}

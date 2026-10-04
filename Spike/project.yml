@@ -1,0 +1,20 @@
+# Phase 0 spike. Answers: does Foundation Models run in this Simulator?
+# Generate with: xcodegen generate
+name: FinePrintSpike
+options:
+  bundleIdPrefix: com.lekanlawal
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    CODE_SIGNING_ALLOWED: "NO"   # simulator-only spike, no signing needed
+targets:
+  FinePrintSpike:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.lekanlawal.fineprint.spike
+        GENERATE_INFOPLIST_FILE: "YES"

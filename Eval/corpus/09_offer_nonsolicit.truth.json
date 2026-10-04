@@ -1,0 +1,11 @@
+{
+  "document_type": "employment",
+  "source": "text",
+  "expected": [
+    { "type": "vacation", "marker": "three weeks of paid vacation", "params": { "vacation_weeks": 3 } },
+    { "type": "overtime", "marker": "Hours worked over 44", "params": { "overtime_threshold_hours": 44, "overtime_multiplier": 1.5 } },
+    { "type": "termination", "marker": "required by the Employment Standards Act" }
+  ],
+  "absent": ["non_compete"],
+  "allowed_extra": ["non_disparagement"]
+}

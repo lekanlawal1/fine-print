@@ -1,0 +1,12 @@
+{
+  "document_type": "residential_lease",
+  "source": "text",
+  "expected": [
+    { "type": "security_deposit", "marker": "ity deposit of $500", "params": { "amount": 500 } },
+    { "type": "pets", "marker": "No pets, including fish" },
+    { "type": "landlord_entry", "marker": "enter the unit without notice", "params": { "notice_hours": 0 } },
+    { "type": "rent_increase", "marker": "increased every six months", "params": { "notice_days": 30, "months_between_increases": 6 } }
+  ],
+  "absent": [],
+  "allowed_extra": []
+}

@@ -1,0 +1,12 @@
+{
+  "document_type": "residential_lease",
+  "source": "text",
+  "expected": [
+    { "type": "rent_deposit", "marker": "rent deposit of $2,100", "params": { "amount": 2100, "monthly_rent": 2100 } },
+    { "type": "key_deposit", "marker": "refundable key deposit of $40", "params": { "amount": 40, "replacement_cost": 40 } },
+    { "type": "landlord_entry", "marker": "at least 24 hours' written notice", "params": { "notice_hours": 24 } },
+    { "type": "rent_increase", "marker": "more than once in any 12-month period", "params": { "notice_days": 90, "months_between_increases": 12 } }
+  ],
+  "absent": ["post_dated_cheques", "security_deposit", "pets", "acceleration_clause"],
+  "allowed_extra": ["termination", "liability_waiver"]
+}
