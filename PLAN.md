@@ -2,7 +2,7 @@
 
 An iOS app that reads any legal-style document (lease, job offer, subscription, terms of
 service), extracts what matters with on-device AI, and separates **what the law says** from
-**what is merely worth a look**. Planning document only; nothing is built yet.
+**what is merely worth a look**. All six phases are complete; see the README for results.
 
 **Thesis (same as Projects 2, 4 and 5):** the AI drafts, code decides. The model reads and
 quotes. It never issues a legal verdict, and it never gets to say something the document
@@ -177,6 +177,5 @@ If Phase 0 shows Foundation Models doesn't run in the Simulator, the default eng
 1. **Disk space:** the 1.2 GB StatCan LFS file was deleted with approval (free space went from 3.8 GB to 5.2 GB). Still modest headroom, so avoid extra simulator runtimes and clear DerivedData if builds get tight.
 2. **Gemini fallback: kept** (recommended). On-device stays the default. The fallback is the safety net if the Simulator can't run Foundation Models, and it makes the engine protocol a real design decision rather than a theoretical one.
 
-**Still open (defaults will be used unless changed)**
-3. **App name and bundle ID.** Default: "Fine Print" and `com.lekanlawal.fineprint`.
-4. **Repo:** a new `fine-print` GitHub repo, same push routine as before.
+3. **App name and bundle ID:** "Fine Print" and `com.lekanlawal.fineprint`.
+4. **Repo:** public at https://github.com/lekanlawal1/fine-print, with a project page on the portfolio site.
