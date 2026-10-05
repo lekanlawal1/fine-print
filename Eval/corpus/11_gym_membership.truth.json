@@ -1,0 +1,14 @@
+{
+  "document_type": "subscription_terms",
+  "source": "text",
+  "expected": [
+    { "type": "auto_renewal", "marker": "renews automatically each month" },
+    { "type": "price_increase", "marker": "may increase dues once per year" },
+    { "type": "cancellation_fee", "marker": "early cancellation fee of $99", "params": { "amount": 99 } },
+    { "type": "liability_waiver", "marker": "not responsible for any injury" },
+    { "type": "data_sharing", "marker": "share your contact information" },
+    { "type": "arbitration", "marker": "not as part of a class action" }
+  ],
+  "absent": [],
+  "allowed_extra": ["termination"]
+}

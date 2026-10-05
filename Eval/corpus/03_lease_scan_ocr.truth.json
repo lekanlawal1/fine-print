@@ -1,0 +1,11 @@
+{
+  "document_type": "residential_lease",
+  "source": "ocr",
+  "expected": [
+    { "type": "security_deposit", "marker": "security deposit of $725", "params": { "amount": 725 } },
+    { "type": "pets", "marker": "No pets or anirnals" },
+    { "type": "landlord_entry", "marker": "12 hours notice", "params": { "notice_hours": 12 } }
+  ],
+  "absent": ["rent_deposit"],
+  "allowed_extra": []
+}

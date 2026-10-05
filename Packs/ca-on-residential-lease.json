@@ -1,0 +1,101 @@
+{
+  "id": "ca-on-residential-lease",
+  "name": "Ontario residential tenancy rules",
+  "jurisdiction": "CA-ON",
+  "document_types": ["residential_lease"],
+  "last_verified": "2026-10-04",
+  "source_url": "https://www.ontario.ca/laws/statute/06r17",
+  "rules": [
+    {
+      "id": "no-pets-void",
+      "applies_to": "pets",
+      "check": { "kind": "present" },
+      "title": "No-pets clause",
+      "citation": "Residential Tenancies Act, 2006, s. 14",
+      "explanation_if_violated": "Ontario's Residential Tenancies Act says a provision in a tenancy agreement prohibiting animals in or about the residential complex is void. The clause is in the lease, but it has no legal effect."
+    },
+    {
+      "id": "acceleration-void",
+      "applies_to": "acceleration_clause",
+      "check": { "kind": "present" },
+      "title": "Rent acceleration clause",
+      "citation": "Residential Tenancies Act, 2006, s. 15",
+      "explanation_if_violated": "A provision making the remaining rent (or a specific sum) due because the tenant defaulted on rent or another obligation is void under s. 15."
+    },
+    {
+      "id": "security-deposit",
+      "applies_to": "security_deposit",
+      "check": { "kind": "present" },
+      "title": "Security or damage deposit",
+      "citation": "Residential Tenancies Act, 2006, ss. 105(1) and 4(1)",
+      "explanation_if_violated": "Under s. 105(1), the only security deposit a landlord may collect is a rent deposit under s. 106. Damage, pet and similar deposits fall outside that, and s. 4(1) makes lease terms that are inconsistent with the Act void."
+    },
+    {
+      "id": "rent-deposit-cap",
+      "applies_to": "rent_deposit",
+      "check": { "kind": "max_ratio", "param": "amount", "of_param": "monthly_rent", "limit": 1 },
+      "title": "Rent deposit amount",
+      "citation": "Residential Tenancies Act, 2006, s. 106(2)",
+      "explanation_if_violated": "A rent deposit can't be more than the lesser of one rent period and one month's rent. This one is larger than one month's rent.",
+      "explanation_if_compliant": "The rent deposit is within the limit of one month's rent.",
+      "exception_note": "If rent is paid weekly or for another period shorter than a month, the limit is one rent period, which this check doesn't model."
+    },
+    {
+      "id": "key-deposit-limit",
+      "applies_to": "key_deposit",
+      "check": { "kind": "max_ratio", "param": "amount", "of_param": "replacement_cost", "limit": 1 },
+      "title": "Key deposit",
+      "citation": "Residential Tenancies Act, 2006, s. 134(1)(a); O. Reg. 516/06, s. 17, item 3",
+      "source_url": "https://www.ontario.ca/laws/regulation/060516",
+      "explanation_if_violated": "A key, fob or card deposit must be refundable and no more than the expected direct cost of replacing it. This one is larger than the replacement cost stated.",
+      "explanation_if_compliant": "The key deposit is no more than the stated replacement cost. It must also be refundable."
+    },
+    {
+      "id": "nsf-admin-fee",
+      "applies_to": "nsf_fee",
+      "check": { "kind": "max_value", "param": "amount", "limit": 20 },
+      "title": "Bounced cheque (NSF) fee",
+      "citation": "Residential Tenancies Act, 2006, s. 134(1); O. Reg. 516/06, s. 17, items 4-5",
+      "source_url": "https://www.ontario.ca/laws/regulation/060516",
+      "explanation_if_violated": "A landlord's administration charge for an NSF cheque can't exceed $20. The bank's own NSF charges to the landlord can be passed on separately, but not as a larger flat fee.",
+      "explanation_if_compliant": "The administration charge is within the $20 limit."
+    },
+    {
+      "id": "required-postdated-cheques",
+      "applies_to": "post_dated_cheques",
+      "check": { "kind": "present" },
+      "title": "Required post-dated cheques or automatic payments",
+      "citation": "Residential Tenancies Act, 2006, ss. 108 and 4(1)",
+      "explanation_if_violated": "Under s. 108, neither a landlord nor a tenancy agreement can require post-dated cheques, automatic bank debits, or automatic credit card charges for rent. A tenant can choose to pay that way, but the lease can't make it a requirement."
+    },
+    {
+      "id": "entry-notice",
+      "applies_to": "landlord_entry",
+      "check": { "kind": "min_value", "param": "notice_hours", "limit": 24 },
+      "title": "Landlord entry notice",
+      "citation": "Residential Tenancies Act, 2006, ss. 27(1), 27(3) and 4(1)",
+      "explanation_if_violated": "For non-emergency entries such as repairs or inspections, s. 27 requires written notice at least 24 hours in advance, stating the reason, the day, and a time between 8 a.m. and 8 p.m. This clause allows less notice.",
+      "explanation_if_compliant": "The notice period meets the 24-hour minimum in s. 27.",
+      "exception_note": "Section 26 allows entry without written notice in an emergency, with the tenant's consent at the time, and in a few other specific situations."
+    },
+    {
+      "id": "rent-increase-notice",
+      "applies_to": "rent_increase",
+      "check": { "kind": "min_value", "param": "notice_days", "limit": 90 },
+      "title": "Rent increase notice",
+      "citation": "Residential Tenancies Act, 2006, s. 116(1)",
+      "explanation_if_violated": "A landlord must give at least 90 days' written notice before increasing rent. Under s. 116(4), an increase without the required notice is void.",
+      "explanation_if_compliant": "The notice period meets the 90-day minimum."
+    },
+    {
+      "id": "rent-increase-frequency",
+      "applies_to": "rent_increase",
+      "check": { "kind": "min_value", "param": "months_between_increases", "limit": 12 },
+      "title": "Rent increase frequency",
+      "citation": "Residential Tenancies Act, 2006, s. 119(1)",
+      "explanation_if_violated": "Rent can be increased only if at least 12 months have passed since the last increase, or since the tenant first rented the unit. This clause allows increases more often.",
+      "explanation_if_compliant": "The increase frequency respects the 12-month rule.",
+      "exception_note": "Many units are also subject to the annual rent increase guideline in s. 120, which this check doesn't cover."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "document_type": "employment",
+  "source": "text",
+  "expected": [
+    { "type": "overtime", "marker": "beyond 48 hours in a week", "params": { "overtime_threshold_hours": 48, "overtime_multiplier": 1 } },
+    { "type": "vacation", "marker": "10 days of paid vacation", "params": { "vacation_weeks": 2 } },
+    { "type": "non_compete", "marker": "competes with Northwind Analytics" },
+    { "type": "termination", "marker": "two weeks' notice or pay in lieu" },
+    { "type": "non_disparagement", "marker": "negative public statements" },
+    { "type": "content_license", "marker": "All work you create" }
+  ],
+  "absent": [],
+  "allowed_extra": []
+}
