@@ -10,7 +10,15 @@
   <img src="docs/media/screens/5-detail-source.png" width="230" alt="A clause with its statute citation">
 </p>
 
-**[Watch the 2-minute demo](docs/media/demo.mp4)** (recorded in the iOS Simulator with real Gemini analysis).
+**[Try it on your own document in the browser](https://lekanlawal1.github.io/portfolio-site/demos/fine-print/#your-document)** · **[Watch the 2-minute demo](docs/media/demo.mp4)** (recorded in the iOS Simulator with real Gemini analysis).
+
+## The browser version
+
+The same pipeline runs on the web. `web/worker` is a Cloudflare Worker that holds the Gemini key and the
+prompts (generated from the same clause catalog; a test keeps them identical) and only tags and quotes. Quote
+verification, the label check and the rule packs run in the visitor's browser, ported from FinePrintCore to
+JavaScript and tested against this repo's evaluation documents. Contact details are stripped before anything is
+sent, and nothing is stored.
 
 ## The problem
 
