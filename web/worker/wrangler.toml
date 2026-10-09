@@ -1,0 +1,12 @@
+# Cloudflare Worker for the Fine Print web demo. Deployed by .github/workflows/deploy-worker.yml.
+name = "fine-print"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# 20 requests per minute per visitor: one document is one classify call plus one per section
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1002"
+simple = { limit = 20, period = 60 }
+
+# GEMINI_API_KEY is set as an encrypted secret by the deploy workflow, never in this file.
