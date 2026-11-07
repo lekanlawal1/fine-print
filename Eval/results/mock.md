@@ -21,39 +21,39 @@ Prompt v1 · context window 8192 tokens · 6 documents · run 2026-10-04T06:38:0
 
 | Document | Type | Recall | Params | Verdicts | Unexpected | Dropped | Time |
 |---|---|---|---|---|---|---|---|
-| 01_lease_problems | ✓ residential_lease (1.00) | 9/9 | 4/7 | 6/9 | 1 | 0/10 | 0.0s |
-| 02_lease_fair | ✓ residential_lease (1.00) | 2/4 | 3/4 | 1/5 | 1 | 0/3 | 0.0s |
-| 03_lease_scan_ocr | ✓ residential_lease (1.00) | 3/3 | 1/2 | 2/3 | 0 | 0/3 | 0.0s |
-| 04_employment_offer | ✓ employment (0.73) | 2/6 | 0/3 | 0/5 | 4 | 0/6 | 0.0s |
-| 05_subscription_terms | ✓ subscription_terms (0.86) | 7/8 | 1/1 | 0/0 | 1 | 0/8 | 0.0s |
-| 06_contractor_agreement | ✗ subscription_terms (0.75) | 1/4 | 0/0 | 0/0 | 2 | 0/4 | 0.0s |
+| 01_lease_problems | OK residential_lease (1.00) | 9/9 | 4/7 | 6/9 | 1 | 0/10 | 0.0s |
+| 02_lease_fair | OK residential_lease (1.00) | 2/4 | 3/4 | 1/5 | 1 | 0/3 | 0.0s |
+| 03_lease_scan_ocr | OK residential_lease (1.00) | 3/3 | 1/2 | 2/3 | 0 | 0/3 | 0.0s |
+| 04_employment_offer | OK employment (0.73) | 2/6 | 0/3 | 0/5 | 4 | 0/6 | 0.0s |
+| 05_subscription_terms | OK subscription_terms (0.86) | 7/8 | 1/1 | 0/0 | 1 | 0/8 | 0.0s |
+| 06_contractor_agreement | WRONG subscription_terms (0.75) | 1/4 | 0/0 | 0/0 | 2 | 0/4 | 0.0s |
 
 ## Details
 
 ### 01_lease_problems
-- ⚠️ false reassurance: Landlord entry notice (app said: needs_human)
-- ⚠️ false reassurance: Rent increase frequency (app said: needs_human)
-- ⚠️ false reassurance: Rent increase notice (app said: needs_human)
+- False reassurance: Landlord entry notice (app said: needs_human)
+- False reassurance: Rent increase frequency (app said: needs_human)
+- False reassurance: Rent increase notice (app said: needs_human)
 - parameter: landlord_entry.notice_hours: expected 0.0, got nothing
 - parameter: rent_increase.months_between_increases: expected 6.0, got nothing
 - parameter: rent_increase.notice_days: expected 60.0, got nothing
 - unexpected: pets: "(the "Landlord") and Jordan Ellis (the "Tenant") for Unit 4B"
 
 ### 02_lease_fair
-- ⚠️ wrong legal verdict: Bounced cheque (NSF) fee → needs_human
+- Wrong legal verdict: Bounced cheque (NSF) fee → needs_human
 - missed: landlord_entry ("at least 24 hours' written notice")
 - missed: rent_increase ("more than once in any 12-month period")
 - parameter: key_deposit.replacement_cost: expected 40.0, got nothing
 - unexpected: nsf_fee: "The Tenant may pay rent by cheque, e-transfer or pre-authori"
 
 ### 03_lease_scan_ocr
-- ⚠️ false reassurance: Landlord entry notice (app said: needs_human)
+- False reassurance: Landlord entry notice (app said: needs_human)
 - parameter: landlord_entry.notice_hours: expected 12.0, got nothing
 
 ### 04_employment_offer
-- ⚠️ false reassurance: Non-compete clause (app said: nothing)
-- ⚠️ false reassurance: Overtime rate (app said: needs_human)
-- ⚠️ false reassurance: Overtime threshold (app said: needs_human)
+- False reassurance: Non-compete clause (app said: nothing)
+- False reassurance: Overtime rate (app said: needs_human)
+- False reassurance: Overtime threshold (app said: needs_human)
 - missed: non_compete ("competes with Northwind Analytics")
 - missed: termination ("two weeks' notice or pay in lieu")
 - missed: non_disparagement ("negative public statements")

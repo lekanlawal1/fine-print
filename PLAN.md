@@ -147,13 +147,13 @@ Putting the logic in a separate package means the riskiest parts (quote verifica
 
 | Phase | Work | Exit criterion |
 |---|---|---|
-| 0. Spike ✅ | Minimal app: does Foundation Models run in this Simulator? Read `contextSize`; try one `@Generable` extraction | Done: available-but-fails in Simulator, works on Mac; [results](docs/phase0_spike.md) |
-| 1. Core package ✅ | Models, normalizer, quote verifier, chunker, rule engine, pack loader/validator, mock extractor, analyzer | Done: 30 tests (38 cases) green, 0 warnings |
-| 2. Packs ✅ | Verify statute text, write the lease and employment packs and the heuristics | Done: 15 rules (10 lease, 5 employment) + 14 amber flags, all read from e-Laws 2026-10-04; 37 tests green; [verification log](docs/rule_verification.md) |
-| 3. Extraction ✅ | Foundation Models extractor, Gemini extractor, Mock extractor, doc-type detection | Done: 3 engines + capability-probing selector, `fp-eval` runs the 6-doc corpus end to end; Gemini 100% / on-device 29% recall; [results](docs/phase3_engines.md) |
-| 4. UI ✅ | The five screens | Done: import (paste/PDF/photo OCR/samples) → consent → staged progress → results by tier → clause detail with highlight + citation → share; Settings with probe log. Verified in the Simulator with **real Gemini**, not just the Mock engine. Two bugs found and fixed while testing (sheet dismissed by `.constant` bindings; misleading key-source label). |
-| 5. Evaluation ✅ | Run the corpus, record the misses, iterate the prompt | Done: corpus 6 → 12 docs (negations, non-solicit, messy PDF, injection); prompt v2/v2.1 + LabelGuard; wrong legal verdicts → 0 on all engines; Gemini 100%; [results](docs/phase5_evaluation.md) |
-| 6. Demo and docs ✅ | Recording, screenshots, README, case study, site page | Done: app icon, 115 s Simulator demo (12 MB web version), 7 framed screenshots, README, case study (237 words), portfolio page; no em dashes in any notes or docs |
+| 0. Spike | Minimal app: does Foundation Models run in this Simulator? Read `contextSize`; try one `@Generable` extraction | Done: available-but-fails in Simulator, works on Mac; [results](docs/phase0_spike.md) |
+| 1. Core package | Models, normalizer, quote verifier, chunker, rule engine, pack loader/validator, mock extractor, analyzer | Done: 30 tests (38 cases) green, 0 warnings |
+| 2. Packs | Verify statute text, write the lease and employment packs and the heuristics | Done: 15 rules (10 lease, 5 employment) + 14 amber flags, all read from e-Laws 2026-10-04; 37 tests green; [verification log](docs/rule_verification.md) |
+| 3. Extraction | Foundation Models extractor, Gemini extractor, Mock extractor, doc-type detection | Done: 3 engines + capability-probing selector, `fp-eval` runs the 6-doc corpus end to end; Gemini 100% / on-device 29% recall; [results](docs/phase3_engines.md) |
+| 4. UI | The five screens | Done: import (paste/PDF/photo OCR/samples) → consent → staged progress → results by tier → clause detail with highlight + citation → share; Settings with probe log. Verified in the Simulator with **real Gemini**, not just the Mock engine. Two bugs found and fixed while testing (sheet dismissed by `.constant` bindings; misleading key-source label). |
+| 5. Evaluation | Run the corpus, record the misses, iterate the prompt | Done: corpus 6 → 12 docs (negations, non-solicit, messy PDF, injection); prompt v2/v2.1 + LabelGuard; wrong legal verdicts → 0 on all engines; Gemini 100%; [results](docs/phase5_evaluation.md) |
+| 6. Demo and docs | Recording, screenshots, README, case study, site page | Done: app icon, 115 s Simulator demo (12 MB web version), 7 framed screenshots, README, case study (237 words), portfolio page; no em dashes in any notes or docs |
 
 If Phase 0 shows Foundation Models doesn't run in the Simulator, the default engine becomes Gemini with the Mock engine for tests, and the docs say so. The architecture doesn't change.
 

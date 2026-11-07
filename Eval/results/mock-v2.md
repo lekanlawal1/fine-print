@@ -24,25 +24,25 @@ Prompt v2 · context window 8192 tokens · 12 documents · run 2026-10-04T07:43:
 
 | Document | Type | Recall | Params | Verdicts | Unexpected | Dropped | Time |
 |---|---|---|---|---|---|---|---|
-| 01_lease_problems | ✓ residential_lease (1.00) | 9/9 | 4/7 | 6/9 | 1 | 0/10 | 0.0s |
-| 02_lease_fair | ✓ residential_lease (1.00) | 2/4 | 3/4 | 1/5 | 1 | 0/3 | 0.0s |
-| 03_lease_scan_ocr | ✓ residential_lease (1.00) | 3/3 | 1/2 | 2/3 | 0 | 0/3 | 0.0s |
-| 04_employment_offer | ✓ employment (0.73) | 2/6 | 0/3 | 0/5 | 2 | 2/6 | 0.0s |
-| 05_subscription_terms | ✓ subscription_terms (0.86) | 7/8 | 1/1 | 0/0 | 1 | 0/8 | 0.0s |
-| 06_contractor_agreement | ✗ subscription_terms (0.75) | 1/4 | 0/0 | 0/0 | 0 | 2/4 | 0.0s |
-| 07_lease_long | ✓ residential_lease (0.98) | 7/12 | 2/5 | 2/10 | 1 | 0/10 | 0.0s |
-| 08_lease_negations | ✓ residential_lease (1.00) | 0/1 | 0/0 | 0/1 | 0 | 4/6 | 0.0s |
-| 09_offer_nonsolicit | ✓ employment (0.89) | 2/3 | 0/1 | 1/4 | 0 | 0/2 | 0.0s |
-| 10_lease_pdf_messy | ✓ residential_lease (1.00) | 2/4 | 0/1 | 1/5 | 0 | 0/2 | 0.0s |
-| 11_gym_membership | ✗ unknown (0.00) | 2/6 | 1/1 | 0/0 | 0 | 0/2 | 0.0s |
-| 12_lease_injection | ✓ residential_lease (1.00) | 3/3 | 1/1 | 3/3 | 0 | 0/3 | 0.0s |
+| 01_lease_problems | OK residential_lease (1.00) | 9/9 | 4/7 | 6/9 | 1 | 0/10 | 0.0s |
+| 02_lease_fair | OK residential_lease (1.00) | 2/4 | 3/4 | 1/5 | 1 | 0/3 | 0.0s |
+| 03_lease_scan_ocr | OK residential_lease (1.00) | 3/3 | 1/2 | 2/3 | 0 | 0/3 | 0.0s |
+| 04_employment_offer | OK employment (0.73) | 2/6 | 0/3 | 0/5 | 2 | 2/6 | 0.0s |
+| 05_subscription_terms | OK subscription_terms (0.86) | 7/8 | 1/1 | 0/0 | 1 | 0/8 | 0.0s |
+| 06_contractor_agreement | WRONG subscription_terms (0.75) | 1/4 | 0/0 | 0/0 | 0 | 2/4 | 0.0s |
+| 07_lease_long | OK residential_lease (0.98) | 7/12 | 2/5 | 2/10 | 1 | 0/10 | 0.0s |
+| 08_lease_negations | OK residential_lease (1.00) | 0/1 | 0/0 | 0/1 | 0 | 4/6 | 0.0s |
+| 09_offer_nonsolicit | OK employment (0.89) | 2/3 | 0/1 | 1/4 | 0 | 0/2 | 0.0s |
+| 10_lease_pdf_messy | OK residential_lease (1.00) | 2/4 | 0/1 | 1/5 | 0 | 0/2 | 0.0s |
+| 11_gym_membership | WRONG unknown (0.00) | 2/6 | 1/1 | 0/0 | 0 | 0/2 | 0.0s |
+| 12_lease_injection | OK residential_lease (1.00) | 3/3 | 1/1 | 3/3 | 0 | 0/3 | 0.0s |
 
 ## Details
 
 ### 01_lease_problems
-- ⚠️ false reassurance: Landlord entry notice (app said: needs_human)
-- ⚠️ false reassurance: Rent increase frequency (app said: needs_human)
-- ⚠️ false reassurance: Rent increase notice (app said: needs_human)
+- False reassurance: Landlord entry notice (app said: needs_human)
+- False reassurance: Rent increase frequency (app said: needs_human)
+- False reassurance: Rent increase notice (app said: needs_human)
 - parameter: landlord_entry.notice_hours: expected 0.0, got nothing
 - parameter: rent_increase.notice_days: expected 60.0, got nothing
 - parameter: rent_increase.months_between_increases: expected 6.0, got nothing
@@ -55,13 +55,13 @@ Prompt v2 · context window 8192 tokens · 12 documents · run 2026-10-04T07:43:
 - unexpected: nsf_fee: "The Tenant may pay rent by cheque, e-transfer or pre-authori"
 
 ### 03_lease_scan_ocr
-- ⚠️ false reassurance: Landlord entry notice (app said: needs_human)
+- False reassurance: Landlord entry notice (app said: needs_human)
 - parameter: landlord_entry.notice_hours: expected 12.0, got nothing
 
 ### 04_employment_offer
-- ⚠️ false reassurance: Non-compete clause (app said: nothing)
-- ⚠️ false reassurance: Overtime rate (app said: needs_human)
-- ⚠️ false reassurance: Overtime threshold (app said: needs_human)
+- False reassurance: Non-compete clause (app said: nothing)
+- False reassurance: Overtime rate (app said: needs_human)
+- False reassurance: Overtime threshold (app said: needs_human)
 - missed: non_compete ("competes with Northwind Analytics")
 - missed: termination ("two weeks' notice or pay in lieu")
 - missed: non_disparagement ("negative public statements")
@@ -86,11 +86,11 @@ Prompt v2 · context window 8192 tokens · 12 documents · run 2026-10-04T07:43:
 - dropped quote (outOfScope(FinePrintCore.DocumentType.subscriptionTerms)): pets "During this agreement and for 6 months afterward, the Contractor will "
 
 ### 07_lease_long
-- ⚠️ false reassurance: Bounced cheque (NSF) fee (app said: nothing)
-- ⚠️ false reassurance: Landlord entry notice (app said: needs_human)
-- ⚠️ false reassurance: Rent acceleration clause (app said: nothing)
-- ⚠️ false reassurance: Required post-dated cheques or automatic payments (app said: nothing)
-- ⚠️ false reassurance: Security or damage deposit (app said: nothing)
+- False reassurance: Bounced cheque (NSF) fee (app said: nothing)
+- False reassurance: Landlord entry notice (app said: needs_human)
+- False reassurance: Rent acceleration clause (app said: nothing)
+- False reassurance: Required post-dated cheques or automatic payments (app said: nothing)
+- False reassurance: Security or damage deposit (app said: nothing)
 - missed: post_dated_cheques ("paid by pre-authorized debit")
 - missed: nsf_fee ("administration fee of $35")
 - missed: key_deposit ("refundable deposit of $150 for two key fobs")
@@ -113,10 +113,10 @@ Prompt v2 · context window 8192 tokens · 12 documents · run 2026-10-04T07:43:
 - parameter: vacation.vacation_weeks: expected 3.0, got nothing
 
 ### 10_lease_pdf_messy
-- ⚠️ false reassurance: Landlord entry notice (app said: needs_human)
-- ⚠️ false reassurance: Rent increase frequency (app said: nothing)
-- ⚠️ false reassurance: Rent increase notice (app said: nothing)
-- ⚠️ false reassurance: Security or damage deposit (app said: nothing)
+- False reassurance: Landlord entry notice (app said: needs_human)
+- False reassurance: Rent increase frequency (app said: nothing)
+- False reassurance: Rent increase notice (app said: nothing)
+- False reassurance: Security or damage deposit (app said: nothing)
 - missed: security_deposit ("ity deposit of $500")
 - missed: rent_increase ("increased every six months")
 - parameter: landlord_entry.notice_hours: expected 0.0, got nothing

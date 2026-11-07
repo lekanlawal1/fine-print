@@ -231,14 +231,14 @@ var md: [String] = [
     "| Document | Type | Recall | Params | Verdicts | Unexpected | Dropped | Time |", "|---|---|---|---|---|---|---|---|",
 ]
 for r in results {
-    md.append("| \(r.name) | \(r.typeOK ? "✓" : "✗") \(r.actualType.rawValue) (\(String(format: "%.2f", r.confidence))) | \(r.found)/\(r.expected) | \(r.paramsCorrect)/\(r.paramsExpected) | \(r.ruleAgreed)/\(r.ruleExpected) | \(r.falsePositives.count + r.absentHits.count) | \(r.dropped.count)/\(r.extracted) | \(String(format: "%.1f", r.seconds))s |")
+    md.append("| \(r.name) | \(r.typeOK ? "OK" : "WRONG") \(r.actualType.rawValue) (\(String(format: "%.2f", r.confidence))) | \(r.found)/\(r.expected) | \(r.paramsCorrect)/\(r.paramsExpected) | \(r.ruleAgreed)/\(r.ruleExpected) | \(r.falsePositives.count + r.absentHits.count) | \(r.dropped.count)/\(r.extracted) | \(String(format: "%.1f", r.seconds))s |")
 }
 md += ["", "## Details", ""]
 for r in results {
     var lines: [String] = []
-    lines += r.failureReasons.map { "- ❌ engine failure: \($0)" }
-    lines += r.falseReassurance.map { "- ⚠️ false reassurance: \($0)" }
-    lines += r.wrongVerdicts.map { "- ⚠️ wrong legal verdict: \($0)" }
+    lines += r.failureReasons.map { "- Engine failure: \($0)" }
+    lines += r.falseReassurance.map { "- False reassurance: \($0)" }
+    lines += r.wrongVerdicts.map { "- Wrong legal verdict: \($0)" }
     lines += r.missed.map { "- missed: \($0)" }
     lines += r.paramErrors.map { "- parameter: \($0)" }
     lines += r.falsePositives.map { "- unexpected: \($0)" }

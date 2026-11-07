@@ -21,11 +21,11 @@ Prompt v1 · context window 24000 tokens · 6 documents · run 2026-10-04T07:00:
 
 | Document | Type | Recall | Params | Verdicts | Unexpected | Dropped | Time |
 |---|---|---|---|---|---|---|---|
-| 01_lease_problems | ✓ residential_lease (1.00) | 9/9 | 7/7 | 9/9 | 0 | 0/9 | 2.8s |
-| 02_lease_fair | ✓ residential_lease (1.00) | 4/4 | 7/7 | 5/5 | 0 | 0/4 | 2.2s |
-| 03_lease_scan_ocr | ✓ residential_lease (1.00) | 3/3 | 2/2 | 3/3 | 0 | 0/3 | 1.9s |
-| 04_employment_offer | ✓ employment (1.00) | 6/6 | 3/3 | 5/5 | 0 | 0/6 | 2.4s |
-| 05_subscription_terms | ✓ subscription_terms (1.00) | 8/8 | 1/1 | 0/0 | 0 | 0/8 | 2.4s |
-| 06_contractor_agreement | ✓ unknown (1.00) | 4/4 | 0/0 | 0/0 | 0 | 0/5 | 2.3s |
+| 01_lease_problems | OK residential_lease (1.00) | 9/9 | 7/7 | 9/9 | 0 | 0/9 | 2.8s |
+| 02_lease_fair | OK residential_lease (1.00) | 4/4 | 7/7 | 5/5 | 0 | 0/4 | 2.2s |
+| 03_lease_scan_ocr | OK residential_lease (1.00) | 3/3 | 2/2 | 3/3 | 0 | 0/3 | 1.9s |
+| 04_employment_offer | OK employment (1.00) | 6/6 | 3/3 | 5/5 | 0 | 0/6 | 2.4s |
+| 05_subscription_terms | OK subscription_terms (1.00) | 8/8 | 1/1 | 0/0 | 0 | 0/8 | 2.4s |
+| 06_contractor_agreement | OK unknown (1.00) | 4/4 | 0/0 | 0/0 | 0 | 0/5 | 2.3s |
 
 ## Details
