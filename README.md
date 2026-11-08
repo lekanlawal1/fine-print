@@ -87,7 +87,7 @@ Full write-ups: [rule verification](docs/rule_verification.md), [Phase 0 spike](
 - The evaluation set is 12 documents written by one person. Real contracts are longer and messier.
 - LabelGuard's patterns are hand-written English. Unusual phrasing is downgraded to "check this yourself", which is the safe direction.
 - On-device AI does not run in the iOS Simulator (Apple's safety-model asset fails to load), so the recorded demo uses Gemini. The on-device engine was evaluated on a Mac, where it works.
-- No live link: App Store distribution needs a paid Apple Developer account. The app ships as source, a demo video and screenshots.
+- Not on the App Store: that needs a paid Apple Developer account, so the iPhone app ships as source, a demo video and screenshots. The browser version above runs the same pipeline on your own document.
 
 ## Repo structure
 
